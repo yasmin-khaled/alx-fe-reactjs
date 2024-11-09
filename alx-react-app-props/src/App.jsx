@@ -8,14 +8,14 @@ import MainContent from './components/MainContent'
 import Footer from './components/Footer'
 import UserProfile from './components/UserProfile'
 import ProfilePage from './components/ProfilePage';
-import './UserContext'
+import UserContext from './UserContext';
 
 function App() {
   const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
   return(
-  <DataContext.Provider value={userData}>
-    <ProfilePage/>;
-  </DataContext.Provider>
+  <UserContext.Provider value={userData}>
+    <ProfilePage/>
+  </UserContext.Provider>
   );
   //  const [count, setCount] = useState(0); 
   //return (
