@@ -1,8 +1,9 @@
-function UserDetails({ userData }) {
+function UserDetails() {
+    const data = useContext(userData);
     return (
       <div>
-        <p>Name: {userData.name}</p>
-        <p>Email: {userData.email}</p>
+        <p>Name: {data.name}</p>
+        <p>Email: {data.email}</p>
       </div>
     );
   }
