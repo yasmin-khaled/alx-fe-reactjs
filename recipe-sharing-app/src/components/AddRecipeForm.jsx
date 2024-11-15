@@ -4,12 +4,16 @@
 
  const AddRecipeForm = () => {
    const addRecipe = useRecipeStore(state => state.addRecipe);
+   const recipes = useRecipeStore((state) => state.recipes)
+
    const [title, setTitle] = useState('');
    const [description, setDescription] = useState('');
 
    const handleSubmit = (event) => {
      event.preventDefault();
-     addRecipe({ id: Date.now(), title, description });
+     const newRecipe = { id: Date.now(), title, description };
+     addRecipe(newRecipe);
+     console.log("Full list of recipes:", recipes);
      setTitle('');
      setDescription('');
    };
