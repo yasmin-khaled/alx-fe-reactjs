@@ -9,11 +9,6 @@ const SearchBar = () => {
   const fullRecipesList = useRecipeStore(state => state.recipes);
 
   const handleSearchChange = (e) => {
-    // if(!e.target.value){
-    //     setSearchTerm('');
-    //     filterRecipes();
-    //     return;
-    // }
     setSearchTerm(e.target.value);
     filterRecipes();
   };
