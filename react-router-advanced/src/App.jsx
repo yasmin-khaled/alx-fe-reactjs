@@ -12,7 +12,7 @@ function App() {
         <Route path="/">
           <h2>Home</h2>
         </Route>
-        <Route path="/post/:postId" component={BlogPost} />
+        <Route path="/blog/:id" component={BlogPost} />
         <ProtectedRoute path="/profile" component={Profile} />
       </Routes>
     </Router>
