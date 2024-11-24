@@ -5,8 +5,8 @@ import TodoList from "../TodoList";
 describe("TodoList Component", () => {
   test("renders the initial todo list", () => {
     render(<TodoList />);
-    expect(screen.getByText("Learn React")).toBeInTheDocument();
-    expect(screen.getByText("Build a Todo App")).toBeInTheDocument();
+    expect(screen.getByText("Task One")).toBeInTheDocument();
+    expect(screen.getByText("Task Two")).toBeInTheDocument();
   });
 
   test("adds a new todo", () => {
@@ -22,7 +22,7 @@ describe("TodoList Component", () => {
 
   test("toggles a todo's completed status", () => {
     render(<TodoList />);
-    const todo = screen.getByText("Learn React");
+    const todo = screen.getByText("Task One");
     expect(todo).not.toHaveStyle("text-decoration: line-through");
     fireEvent.click(todo);
     expect(todo).toHaveStyle("text-decoration: line-through");
@@ -32,7 +32,7 @@ describe("TodoList Component", () => {
 
   test("deletes a todo", () => {
     render(<TodoList />);
-    const todo = screen.getByText("Learn React");
+    const todo = screen.getByText("Task One");
     const deleteButton = todo.nextSibling;
 
     fireEvent.click(deleteButton);
