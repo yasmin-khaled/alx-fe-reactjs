@@ -27,12 +27,12 @@ const RegisterationForm = () => {
 
   const validateForm = () => {
     let isValid  = true;
-    
-    if(!username)
+
+    if (!username)
       isValid = false;
-    if(!email)
+    if (!email)
       isValid = false;
-    if(!password)
+    if (!password)
       isValid = false;
   
     return isValid;
