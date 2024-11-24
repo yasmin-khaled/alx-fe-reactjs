@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const RegisterationForm = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
   });
@@ -12,8 +12,8 @@ const RegisterationForm = () => {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevState) => ({ ...prevState, [name]: value }));
+    const { username, value } = e.target;
+    setFormData((prevState) => ({ ...prevState, [username]: value }));
   };
 
   const handleSubmit = (e) => {
@@ -28,7 +28,7 @@ const RegisterationForm = () => {
 
   const validateForm = () => {
     let isValid  = true;
-    if(!formData.name || !formData.email || !formData.password){
+    if(!formData.username || !formData.email || !formData.password){
         isValid = false;
     }
     return isValid;
@@ -40,8 +40,8 @@ const RegisterationForm = () => {
         <label htmlFor="username">Username:</label>
         <input
           type="text"
-          name="name"
-          value={formData.name}
+          username="username"
+          value={formData.username}
           onChange={handleChange}
         />
       </div>
@@ -49,7 +49,7 @@ const RegisterationForm = () => {
         <label htmlFor="email">Email:</label>
         <input
           type="email"
-          name="email"
+          username="email"
           value={formData.email}
           onChange={handleChange}
         />
@@ -58,7 +58,7 @@ const RegisterationForm = () => {
         <label htmlFor="password">Password:</label>
         <input
           type="password"
-          name="password"
+          username="password"
           value={formData.password}
           onChange={handleChange}
         />
