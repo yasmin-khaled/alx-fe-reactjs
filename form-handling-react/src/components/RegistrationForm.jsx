@@ -6,7 +6,7 @@ const RegisterationForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const [error, setError] = useState({
+  const [error, setErrors] = useState({
     msg: ""
   });
 
@@ -19,17 +19,22 @@ const RegisterationForm = () => {
     e.preventDefault();
     if(validateForm()){
         console.log(formData);
-        setError({msg: ""});
+        setErrors({msg: ""});
     } else {
-        setError({msg: "Empty form field(s)."});
+        setErrors({msg: "Empty form field(s)."});
     }
   };
 
   const validateForm = () => {
     let isValid  = true;
-    if(!username || !email || !password){
-        isValid = false;
-    }
+    
+    if(!username)
+      isValid = false;
+    if(!email)
+      isValid = false;
+    if(!password)
+      isValid = false;
+  
     return isValid;
   }
 
