@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import ProfileDetails from "./ProfileDetails";
 import ProfileSettings from "./ProfileSettings";
 
@@ -12,10 +12,10 @@ function Profile() {
         <Link to="/profile/settings">Profile Settings</Link>
       </nav>
       
-      <Switch>
+      <Routes>
         <Route path="/profile/details" component={ProfileDetails} />
         <Route path="/profile/settings" component={ProfileSettings} />
-      </Switch>
+      </Routes>
     </div>
   );
 }
