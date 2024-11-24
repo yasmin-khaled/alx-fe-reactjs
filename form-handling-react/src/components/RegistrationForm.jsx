@@ -1,11 +1,10 @@
 import { useState } from "react";
 
 const RegisterationForm = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+
+  const [username, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [error, setError] = useState({
     msg: ""
@@ -28,7 +27,7 @@ const RegisterationForm = () => {
 
   const validateForm = () => {
     let isValid  = true;
-    if(!formData.username || !formData.email || !formData.password){
+    if(!username || !email || !password){
         isValid = false;
     }
     return isValid;
@@ -41,7 +40,7 @@ const RegisterationForm = () => {
         <input
           type="text"
           username="username"
-          value={formData.username}
+          value={username}
           onChange={handleChange}
         />
       </div>
@@ -50,7 +49,7 @@ const RegisterationForm = () => {
         <input
           type="email"
           username="email"
-          value={formData.email}
+          value={email}
           onChange={handleChange}
         />
       </div>
@@ -59,7 +58,7 @@ const RegisterationForm = () => {
         <input
           type="password"
           username="password"
-          value={formData.password}
+          value={password}
           onChange={handleChange}
         />
       </div>
