@@ -6,14 +6,16 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   localStorage.getItem("authenticated") === "true";
+  const isAuthenticated = true;
   return (
     <Router>
       <Routes>
         <Route path="/">
-          <h2>Home</h2>
         </Route>
         <Route path="/blog/:id" component={BlogPost} />
-        <ProtectedRoute path="/profile" component={Profile} />
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Routes>
     </Router>
   );
