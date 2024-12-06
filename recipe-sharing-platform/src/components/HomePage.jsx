@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function HomePage() {
     const [recipes, setRecipes] = useState([]);
@@ -13,6 +14,10 @@ function HomePage() {
         .then((response) => response.json())
         .then((data) => setRecipes(data));
     }, []);
+
+    if (!recipes) {
+        return <div>Loading...</div>;
+      }
 
     return(
         <div className="container mx-auto p-4">
@@ -30,6 +35,9 @@ function HomePage() {
                         />
                         <h2 className="text-xl font-semibold my-2">{recipe.title}</h2>
                         <p className="text-gray-600">{recipe.summary}</p>
+                        <Link to={`/recipe/${recipe.id}`} className="text-blue-500 hover:text-blue-700">
+                            View Recipe
+                        </Link>
                     </div>
                 ))}
             </div>
