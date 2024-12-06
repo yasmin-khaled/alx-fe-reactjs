@@ -37,13 +37,17 @@ function HomePage() {
             <p className="text-gray-600">{recipe.summary}</p>
             <Link
               to={`/recipe/${recipe.id}`}
-              className="text-blue-500 hover:text-blue-700"
-            >
+              className="text-blue-500 hover:text-blue-700">
               View Recipe
             </Link>
           </div>
         ))}
       </div>
+      <Link to="/add-recipe">
+        <button className="bg-blue-500 text-white px-4 py-2 my-4 rounded-md hover:bg-blue-700">
+          Add Recipe
+        </button>
+      </Link>
     </div>
   );
 }
