@@ -27,7 +27,7 @@ function RecipeDetail() {
           className="w-full h-64 object-cover rounded-t-lg"
         />
         <h1 className="text-2xl font-bold my-4">{recipe.title}</h1>
-        <h2 className="text-2xl font-bold my-4">Ingredients</h2>
+        <h2 className="text-2xl font-bold my-4">ingredients</h2>
         <p className="text-gray-600">{recipe.summary}</p>
         <h2 className="text-2xl font-bold my-4">Instructions</h2>
         <ol className="list-disc pl-6 space-y-2">
