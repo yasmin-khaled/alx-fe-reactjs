@@ -35,7 +35,7 @@ const AddRecipeForm = () => {
         placeholder="Recipe Description"
         required
       />
-      <button type="submit">Add Recipe</button>
+      <button type="submit"         className='text-blue-500'>Add Recipe</button>
     </form>
   );
 };
