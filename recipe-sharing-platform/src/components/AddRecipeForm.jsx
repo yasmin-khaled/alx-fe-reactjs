@@ -4,18 +4,19 @@ function AddRecipeForm() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [steps, setSteps] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    //validate
     if (!title || !ingredients || !steps) {
-      setError("All fields are required.");
+      setErrors("All fields are required.");
       return;
     }
     setTitle("");
     setIngredients("");
     setSteps("");
-    setError("");
+    setErrors("");
   };
 
   return (
@@ -24,7 +25,7 @@ function AddRecipeForm() {
         onSubmit={handleSubmit}
         className="bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto">
         <h1 className="text-2xl font-bold mb-4">Add a Recipe</h1>
-        {error && <p className="text-red-500">{error}</p>}
+        {errors && <p className="text-red-500">{errors}</p>}
         <div className="mb-4">
           <label className="block text-gray-700">Title</label>
           <input
