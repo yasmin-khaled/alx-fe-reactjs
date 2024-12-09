@@ -1,1 +1,28 @@
-// The correct file is located in 'public' folder
+[
+  {
+    "id": 1,
+    "title": "Spaghetti Carbonara",
+    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
+    "image": "https://via.placeholder.com/150",
+    "instructions": [
+      "Boil the pasta.",
+      "Prepare eggs and cheese.",
+      "Cook beef bacon and add to pasta.",
+      "Combine pasta, egss, cheese and bakon.",
+      "Serve  it."
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Chicken Tikka Masala",
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
+    "image": "https://via.placeholder.com/150",
+    "instructions": [
+      "Marinate chicken.",
+      "Grill or bake the marinated chicken.",
+      "In a pan, add oil.",
+      "Add chicken and cream.",
+      "Serve it."
+    ]
+  }
+]
