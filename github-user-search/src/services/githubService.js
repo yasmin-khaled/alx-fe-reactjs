@@ -1,6 +1,7 @@
 import axios from "axios";
 import { baseURL } from './config';
 
+//const baseURL = "https://api.github.com";
 export const fetchUserData = async (username) => {
   const response = await axios.get(`${baseURL}/users/${username}`);
   console.log(response.data);
