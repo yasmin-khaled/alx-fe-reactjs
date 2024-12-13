@@ -63,4 +63,112 @@ function UserDetails({ userData }) {
     </div>
   );
 }
-export default App;
+//export default App;
+
+
+import React, { createContext, useContext } from "react"; //import createContext function and useContext hook from react
+
+const UserContext = createContext(); // Create a context to share userData
+
+// Parent Component
+function App() {
+  const userData = { name: "Yasmin Rady", email: "yasmin.rady@valeo.com" };
+  return (
+    // Provide userData to all descendants
+    <UserContext.Provider value={userData}>
+      <ProfilePage />
+    </UserContext.Provider>
+  );
+}
+
+// Intermediate Components 1 & 2
+function ProfilePage() {
+  return <UserInfo />;
+}
+function UserInfo() {
+  return <UserDetails />;
+}
+
+// Target Component
+function UserDetails() {
+  const userData = useContext(UserContext); // Retrieves UserContext, so that UserDetails can consume userData
+
+  return (
+    <div>
+      <p>Name: {userData.name}</p>
+      <p>Email: {userData.email}</p>
+    </div>
+  );
+}
+//export default App;
+
+import {create} from 'zustand'; //import create function from zustand
+
+//create store that includes state 'tasks' and actions 'addTask' and 'removeTask'
+const useTaskStore = create((set) => ({
+  tasks: [ 
+    { id: 1, title: 'Introduce State Management', completed: false },
+    { id: 2, title: 'Introduce Zustand', completed: true }
+],
+  addTask: (task) => {
+    set((state) => ({ tasks: [...state.tasks, task] }));
+  },
+  removeTask: (id) => {
+    set((state) => ({ tasks: state.tasks.filter(task => task.id !== id) }));
+  },
+}));
+export default useTaskStore;
+
+//TaskList Component
+const TaskList = () => {
+    const { removeTask } = useTaskStore();
+    removeTask(0); //Action call
+
+    //selector to select addTask only
+    const addTask = useTaskStore((state) => state.addTask);
+
+    return <></>;
+}
+
+
+import create from 'zustand';
+import { logger, devtools, persist } from 'zustand/middleware'; //import built-in middlewares
+
+/**
+ * Call create() which will create the store, then pass a middleware, logger, which 
+ * wraps the state initializer
+ */
+const useTaskStoreWrapped = create(
+  logger((set) => ({
+    tasks: [],
+    addTask: (task) => set((state) => ({ tasks: [...state.tasks, task] })),
+  }))
+);
+
+//export default useTaskStoreWrapped;
+
+import create from 'zustand';
+
+/**
+ * roleMiddleware is a custom middleware function that receives a state initializer function,
+ * It returns a function that takes the 3 built-in function which can set, get the state and attach additional behaviors.
+ */
+const roleMiddleware = (config) => (set, get, api) => 
+  config((args) => {
+    const state = get(); //get the current state
+    if (state.isAuthenticated) {
+      set(args); //allow state update, only if isAuthenticated. Otherwise, block the state update.
+    } else {
+      console.warn('Error: User is not authenticated');
+    }
+  }, get, api);
+
+const useAuthStore = create(roleMiddleware((set) => ({
+  isAuthenticated: false,
+  userRole: null,
+  userName: null,
+  
+  login: (role, name) => set({ isAuthenticated: true, userRole: role, userName: name }),
+  logout: () => set({ isAuthenticated: false, userRole: null, userName: null }),
+})));
+
