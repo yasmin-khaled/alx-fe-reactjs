@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { fetchUserData } from '../services/githubService';
 import { fetchAdvancedSearch } from '../services/githubService'; 
-
+// login
 function Search() {
   const [query, setQuery] = useState('');
   const [location, setLocation] = useState('');
@@ -32,6 +32,7 @@ function Search() {
       setCurrentPage(data.currentPage);
     } catch (error) {
       console.error('Error fetching users:', error);
+      setError('Looks like we cant find the user');
     } finally {
       setLoading(false);
     }
