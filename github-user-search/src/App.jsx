@@ -9,7 +9,7 @@ import Search from "./components/Search";
     return (
       <Router>
         <Routes>
-          <Route path="/search" element={<Search />} />
+          <Route path="/" element={<Search />} />
         </Routes>
       </Router>
     );
